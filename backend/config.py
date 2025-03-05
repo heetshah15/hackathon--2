@@ -1,0 +1,5 @@
+import os
+
+SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID", "5bcfcdc8743b4db18c68e7a336980836")
+SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET", "836c0a52ad994216bab54462dc3752fa")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "your_openai_api_key")
