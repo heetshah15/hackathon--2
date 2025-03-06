@@ -7,17 +7,17 @@ app = Flask(__name__)
 @app.route('/recommend', methods=['POST'])
 def recommend():
     data = request.json
-    song_query = data.get('song_query')  # Could be a song, artist, or genre
+    song_query = data.get('song_query')  # can be a song, artist, or genre
     if not song_query:
         return jsonify({'error': 'No song query provided'}), 400
 
-    # Fetch song metadata from Spotify
+    # fetching song metadata
     try:
         metadata = get_song_metadata(song_query)
     except Exception as e:
         return jsonify({'error': f'Error fetching metadata: {str(e)}'}), 500
 
-    # Use OpenAI to generate movie recommendations
+    # open ai to generate movie recommendations
     try:
         recommendations = get_movie_recommendations(metadata)
     except Exception as e:
